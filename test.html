@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email</title>
+    <style>
+       body
+        {
+            background-color: #DDE6ED;
+        }
+       #mailsubmitbtn{
+        cursor: pointer;
+        position: relative;
+        padding: 10px 24px;
+        font-size: 18px;
+        color: rgb(193, 163, 98);
+        border: 2px solid rgb(193, 163, 98);
+        border-radius: 34px;
+        background-color: transparent;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+        overflow: hidden;
+}
+
+#mailsubmitbtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(193, 163, 98);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+#mailsubmitbtn {
+  font-family: inherit;
+  font-size: 12px;
+ 
+  background: rgb(230, 56, 56);
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+#mailsubmitbtn span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+#mailsubmitbtn svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+#mailsubmitbtn:hover
+{
+    transform: scale(1.05);
+}
+
+#mailsubmitbtn:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+#mailsubmitbtn:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+#mailsubmitbtn:hover span {
+  transform: translateX(8em);
+}
+
+#mailsubmitbtn:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
+
+
+.container {
+    width: 300px;
+    height: 350px;
+    position: relative;
+    top: 30vh;
+    left: 40vw;
+  width: 250px;
+  height: 250px;
+}
+
+.terminal_toolbar {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  padding: 0 8px;
+  box-sizing: border-box;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: #212121;
+  justify-content: space-between;
+}
+
+.butt {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin-right: 5px;
+  font-size: 8px;
+  height: 12px;
+  width: 12px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 100%;
+  background: linear-gradient(#7d7871 0%, #595953 100%);
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 1px 0px #41403A, 0px 1px 1px 0px #474642;
+}
+
+.btn-color {
+  background: #ee411a;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.butt--exit {
+  background: linear-gradient(#f37458 0%, #de4c12 100%);
+}
+
+.add_tab {
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0 6px;
+  border-radius: 4px 4px 0 0;
+  border-bottom: none;
+  cursor: pointer;
+}
+
+.user {
+  color: #d5d0ce;
+  margin-left: 6px;
+  font-size: 14px;
+  line-height: 15px;
+}
+
+.terminal_body {
+  background: rgba(0, 0, 0, 0.6);
+  height: calc(100% - 0px);
+  padding-top: 2px;
+  margin-top: -1px;
+  font-size: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.terminal_promt {
+  display: flex;
+}
+
+.terminal_promt span {
+  margin-left: 4px;
+}
+
+.terminal_user {
+  color: #1eff8e;
+}
+
+.terminal_location {
+  color: #4878c0;
+}
+
+.terminal_bling {
+  color: #dddddd;
+}
+
+.terminal_cursor {
+  display: block;
+  height: 14px;
+  width: 5px;
+  margin-left: 10px;
+  animation: curbl 1200ms linear infinite;
+}
+
+@keyframes curbl {
+
+  0% {
+    background: #ffffff;
+  }
+
+  49% {
+    background: #ffffff;
+  }
+
+  60% {
+    background: transparent;
+  }
+
+  99% {
+    background: transparent;
+  }
+
+  100% {
+    background: #ffffff;
+  }
+}
+
+.input {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-weight: 500;
+  font-size: .8vw;
+  color: #fff;
+  background-color: rgb(28,28,30);
+  box-shadow: 0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  max-width: 190px;
+  transition: .4s;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 .15vw skyblue;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+    <div class="terminal_toolbar">
+        <div class="butt">
+            <button class="btn btn-color"></button>
+            <button class="btn"></button>
+            <button class="btn"></button>
+        </div>
+        <p class="user">Aritra@admin: ~</p>
+        <div class="add_tab">
+            +
+        </div>
+    </div>
+    <div class="terminal_body">
+        <div class="terminal_promt">
+            <span class="terminal_user">Aritra@admin:</span>
+            <span class="terminal_location">~</span>
+            <span class="terminal_bling">$</span>
+            <span class="terminal_cursor"></span>
+            <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;position: absolute;top: 50px;left: 44px;">
+                <input type="text" class="input" id="subjectInput" placeholder="Enter subject"><br>
+                <input type="text" class="input" id="nameofSender" placeholder="Enter name"><br>
+                <input type="email" class="input" id="emailID" placeholder="Enter Email-ID to send" ><br>
+                <textarea id="bodyInput" class="input" placeholder="Enter email body"></textarea><br>
+                <button id="mailsubmitbtn" onclick="openGmailCompose()">
+  <div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" fill="currentColor"></path>
+      </svg>
+    </div>
+  </div>
+  <span>Send</span>
+</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openGmailCompose() {
+  
+  var emailAddress = document.getElementById("emailID").value;;
+  var subject = document.getElementById("subjectInput").value;
+  var name = document.getElementById("nameofSender").value;
+  var body = document.getElementById("bodyInput").value;
+  var mainbody='\nMessage:\n'+body+'\nRespectfully,\n '+ name ;
+    if(emailAddress===""||subject===""||name===""||body==="")
+    {
+        alert("Any of the Fields cannot be kept empty");
+        return false;
+    }
+    else{
+          // Construct the Gmail compose URL
+  var composeUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(emailAddress) + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(mainbody);
+
+  // Open the Gmail compose window
+  window.open(composeUrl);
+    }
+
+}
+
+    </script>
+</body>
+
+</html>
